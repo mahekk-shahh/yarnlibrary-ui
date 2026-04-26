@@ -570,7 +570,7 @@ body {
   width: 450px;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  background: url("./assets/why_choose_bg.jpg") center/cover no-repeat;
+  background: url("./images/why_choose_bg.jpg") center/cover no-repeat;
 }
 
 .why-choose-circle {
@@ -741,7 +741,7 @@ body {
       rgba(255, 255, 255, 0.3),
       rgba(255, 255, 255, 0.3)
     ),
-    url("./assets/signup_bg.png") center/cover no-repeat;
+    url("./images/signup_bg.png") center/cover no-repeat;
 }
 
 /* Login */
@@ -751,12 +751,12 @@ body {
       rgba(255, 255, 255, 0.3),
       rgba(255, 255, 255, 0.3)
     ),
-    url("./assets/login_bg.png") center/cover no-repeat;
+    url("./images/login_bg.png") center/cover no-repeat;
 }
 
 /* Call to action */
 .call-to-action {
-  background: url("./assets/call_to_action.jpg") center/cover no-repeat;
+  background: url("./images/call_to_action.jpg") center/cover no-repeat;
   height: calc(100vh - 100px);
 }
 .call-to-action::before {
