@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import Image from "../../assets/news-cover.png";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom"
 
@@ -8,7 +7,7 @@ export function NewsCardPreview() {
     <div className="relative w-full flex flex-wrap mx-auto mb-5 gap-3 p-4">
       {Array.from({ length: 3 }, (_, i) => (
         <div key={i} className="flex flex-wrap gap-4 border border-blue-900">
-          <img src={Image} className="rounded-xl mb-2 h-28 w-28 border" />
+          <img src={'./images/news-cover.png'} className="rounded-xl mb-2 h-28 w-28 border" />
           <div className="flex justify-evenly items-start flex-col">
             <h3 className="font-medium text-sm line-clamp-2">News Title</h3>
             <Button variant="outline" className="text-xs h-auto p-1.5">

@@ -35,7 +35,7 @@ const MyNavbar = () => {
         className="text-xl font-bold cursor-pointer"
         onClick={() => navigate("/")}
       >
-        <img src={"./logo.jpeg"} alt="Yarn Library" className="h-12" />
+        <img src={"./images/logo.jpeg"} alt="Yarn Library" className="h-12" />
       </div>
 
       {/* Desktop Menu */}

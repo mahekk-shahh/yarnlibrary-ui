@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import Image from "../../assets/bg-home-3.jpg";
 import { Link } from "react-router-dom"
 
 export function ProductsCardPreview({ cards = 3 }) {
@@ -11,7 +10,7 @@ export function ProductsCardPreview({ cards = 3 }) {
           className="rounded-2xl overflow-hidden bg-white border border-gray-200"
         >
           <div className="bg-gradient-to-b from-gray-50 to-white rounded-t-2xl">
-            <img src={Image} alt="" />
+            <img src={"./images/bg-home-3.jpg"} alt="" />
           </div>
 
           <Button className="w-full rounded-none rounded-b-2xl pointer-events-none">

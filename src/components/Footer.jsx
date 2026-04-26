@@ -1,5 +1,3 @@
-import React from "react";
-import { images_assets } from "../assets/images";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -9,7 +7,7 @@ const Footer = () => {
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-start px-5">
         {/* Logo Section */}
         <div className="">
-          <img src={"./logo-1.jpeg"} alt="Yarn Library" className="h-20" />
+          <img src={"./images/logo-1.jpeg"} alt="Yarn Library" className="h-20" />
           <h5 className="footer-heading mt-8">Connect with us!</h5>
           <div className="flex my-3">
             <a
@@ -19,7 +17,7 @@ const Footer = () => {
               className="me-4"
             >
               <img
-                src={images_assets.instagram_color}
+                src={'./images/instagram_color.png'}
                 alt="Instagram"
                 style={{ width: 20, height: 20 }}
               />
@@ -31,7 +29,7 @@ const Footer = () => {
               className="me-4"
             >
               <img
-                src={images_assets.facebook_color}
+                src={'./images/facebook_color.png'}
                 alt="Facebook"
                 style={{ width: 20, height: 20 }}
               />
@@ -43,7 +41,7 @@ const Footer = () => {
               className="me-4"
             >
               <img
-                src={images_assets.linkedin_color}
+                src={'./images/linkedin_color.png'}
                 alt="LinkedIn"
                 style={{ width: 20, height: 20 }}
               />
@@ -54,7 +52,7 @@ const Footer = () => {
               rel="noopener noreferrer"
             >
               <img
-                src={images_assets.whatsapp_color}
+                src={'./images/whatsapp_color.png'}
                 alt="WhatsApp"
                 style={{ width: 20, height: 20 }}
               />

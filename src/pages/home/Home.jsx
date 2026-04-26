@@ -1,4 +1,3 @@
-import { images_assets } from "../../assets/images";
 import { Card, CardContent } from "@/components/ui/card";
 import ServiceCard from "@/pages/home/ServiceCard";
 import HomeSlider from "@/pages/home/HomeSlider";
@@ -8,7 +7,7 @@ import ProductsSection from "./ProductsSection";
 const features = [
   {
     i: 2.5,
-    src: images_assets.why_choose_1,
+    src: "./images/why-choose-1.png",
     alt: "img 1",
     title: "Direct Connections",
     description: "Buyers connect with sellers instantly.",
@@ -16,7 +15,7 @@ const features = [
   },
   {
     i: 3.5,
-    src: images_assets.why_choose_2,
+    src: "./images/why-choose-2.png",
     alt: "img 2",
     title: "Trusted Sellers",
     description: "Verified suppliers offering high-quality yarns.",
@@ -24,7 +23,7 @@ const features = [
   },
   {
     i: 4.5,
-    src: images_assets.why_choose_3,
+    src: "./images/why-choose-3.png",
     alt: "img 3",
     title: "Industry Expertise",
     description: "Get expert advice from yarn professionals.",
@@ -32,7 +31,7 @@ const features = [
   },
   {
     i: 5.5,
-    src: images_assets.why_choose_4,
+    src: "./images/why-choose-4.png",
     alt: "img 4",
     title: "Seamless Experience",
     description:
@@ -53,21 +52,21 @@ const Home = () => {
             {/* Cards */}
             <ServiceCard
               id="1"
-              image={images_assets.services_1}
+              image={'./images/services_1.jpg'}
               title="Find Suppliers Globally"
               description="Easily connect with trusted yarn suppliers for your needs."
             />
 
             <ServiceCard
               id="2"
-              image={images_assets.services_2}
+              image={'./images/services_2.jpg'}
               title="Showcase Your Yarn"
               description="List your yarns and reach buyers looking for quality yarns."
             />
 
             <ServiceCard
               id="3"
-              image={images_assets.services_3}
+              image={'./images/services_3.jpg'}
               title="Get Expert Guidance"
               description="Learn from industry experts and get the best advice on yarns."
             />

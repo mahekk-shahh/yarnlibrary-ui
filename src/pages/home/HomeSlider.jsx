@@ -1,19 +1,18 @@
 import Slider from "react-slick";
-import { images_assets } from "@/assets/images";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const bg_images = [
-  images_assets.bg_home_1,
-  images_assets.bg_home_2,
-  images_assets.bg_home_3,
-  images_assets.bg_home_4,
-  images_assets.bg_home_5,
-  images_assets.bg_home_6,
-  images_assets.bg_home_7,
-  images_assets.bg_home_8,
-  images_assets.bg_home_9,
-  images_assets.bg_home_10,
+  './images/bg-home-1.jpg',
+  './images/bg-home-2.jpg',
+  './images/bg-home-3.jpg',
+  './images/bg-home-4.jpg',
+  './images/bg-home-5.jpg',
+  './images/bg-home-6.jpg',
+  './images/bg-home-7.jpg',
+  './images/bg-home-8.jpg',
+  './images/bg-home-9.jpg',
+  './images/bg-home-10.jpg',
 ];
 
 const settings = {

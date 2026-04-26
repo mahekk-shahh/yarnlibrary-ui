@@ -1,5 +1,4 @@
 import React from "react";
-import { images_assets } from "../assets/images";
 import { CheckCircle2 } from "lucide-react";
 
 const Feature = ({ text }) => (
@@ -61,11 +60,7 @@ const About = () => {
           </div>
 
           <div className="flex justify-center">
-            <img
-              src={images_assets.about}
-              alt=""
-              className="w-[420px]"
-            />
+            <img src={"./images/about.jpg"} alt="" className="w-[420px]" />
           </div>
         </div>
 
@@ -86,7 +81,7 @@ const About = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <FeatureCard
-              image={images_assets.about_1}
+              image={"./images/about_1.jpg"}
               title="For Sellers"
               items={[
                 "Showcase your yarn developments to a global audience.",
@@ -97,7 +92,7 @@ const About = () => {
             />
 
             <FeatureCard
-              image={images_assets.about_2}
+              image={"./images/about_2.jpg"}
               title="For Buyers"
               items={[
                 "Explore yarn developments from multiple suppliers.",
@@ -108,7 +103,7 @@ const About = () => {
             />
 
             <FeatureCard
-              image={images_assets.about_3}
+              image={"./images/about_3.jpg"}
               title="For Yarn Professionals"
               items={[
                 "Provide expert consultations on yarn selection.",
