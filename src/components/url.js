@@ -1,4 +1,4 @@
 // const url = "https://yarnlibrary.onrender.com";
-const url = "http://192.168.29.5:8009";
+const url = import.meta.env.VITE_API_URL;
 
 export default url;
