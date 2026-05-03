@@ -14,7 +14,7 @@ const SuppliersCard = ({ supplier }) => {
     >
       <CardContent className="text-center">
         <img
-          src={supplier.logoUrl}
+          src={supplier.logo_url}
           alt={supplier.company}
           className="w-full object-contain m-auto rounded"
         />

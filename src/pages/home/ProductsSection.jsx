@@ -26,7 +26,7 @@ const ProductsSection = () => {
               {isPending ? (
                 <ProductCardSkeleton />
               ) : (
-                data?.products?.map((item, i) => (
+                data?.map((item, i) => (
                   <ProductsCard key={i} products={item} className="w-70" />
                 ))
               )}

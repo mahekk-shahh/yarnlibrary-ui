@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 
 const Layout = () => {
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       <MyNavbar />
-      <div>
+      <div className="flex-1 overflow-y-auto">
         <Outlet />
         <CallToAction />
         <Footer />

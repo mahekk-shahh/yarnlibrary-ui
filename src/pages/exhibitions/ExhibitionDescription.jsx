@@ -57,7 +57,9 @@ export default function ExhibitionDescription() {
         {/* Image & Tags */}
         <div className="space-y-4">
           <img
-            src={exhibition.imageUrl ? exhibition.imageUrl : "/placeholder.png"}
+            src={
+              exhibition.image_url ? exhibition.image_url : "/placeholder.png"
+            }
             alt={exhibition.title}
             className="w-full rounded-xl shadow-md object-cover"
           />

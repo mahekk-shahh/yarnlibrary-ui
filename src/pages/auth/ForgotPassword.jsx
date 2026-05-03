@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import toast from "react-hot-toast";
+import { toast } from "@/components/ui/sonner";
 import url from "@/components/url";
 
 const ForgotPassword = () => {
@@ -29,16 +29,14 @@ const ForgotPassword = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(`${url}/forgot-password`, data);
-      toast.success(response.data.message || "OTP sent to your email");
-      navigate("/otp-verify", { state: { email: data.email } }); // Redirect to OTP verification & reset page
+      const response = await axios.post(`${url}/auth/forgot-password/`, data);
+      toast.success("Email sent!", {
+        position: "top-right",
+        description: response.data.message || "OTP sent to your email",
+      });
+      navigate("/login");
     } catch (error) {
-      if (error.response) {
-        setError("email", {
-          type: "validate",
-          message: error.response.data.message || "Something went wrong",
-        });
-      }
+      toast.error("Something went wrong", { position: "top-right" });
     }
   };
 
@@ -47,7 +45,7 @@ const ForgotPassword = () => {
       <Card className="md:w-1/3 sm:w-1/2 p-5 bg-white/60 sm:m-auto mx-5 shadow-xl backdrop-blur-md">
         <h4 className="text-xl font-bold m-auto mt-3">Forgot Password</h4>
         <p className="text-sm text-center mb-4">
-          Enter your email address to receive a password reset OTP.
+          Enter your email address to receive a password reset link.
         </p>
         <Form {...form}>
           <form onSubmit={handleSubmit(onSubmit)} className="*:my-2.5">
@@ -70,7 +68,7 @@ const ForgotPassword = () => {
             />
             <div className="flex justify-end">
               <Button type="submit" disabled={form.formState.isSubmitting}>
-                {form.formState.isSubmitting ? "Sending OTP..." : "Send OTP"}
+                {form.formState.isSubmitting ? "Sending Link..." : "Send Link"}
               </Button>
             </div>
           </form>

@@ -9,7 +9,7 @@ const ListingYarn = () => {
   const { watch } = form;
 
   const values = watch();
-  const { data: products, isPending: isProductsPending } = useProducts(values);
+  const { data: products, isPending: isProductsPending } = useProducts();
 
   if (isProductsPending) return <ProductCardSkeleton cards={5} />;
 
@@ -18,7 +18,7 @@ const ListingYarn = () => {
       <div className="flex items-start flex-wrap">
         {/* <Filters form={form} facets={products.facet} /> */}
         <div className="flex-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {products?.products?.map((product) => (
+          {products?.map((product) => (
             <ProductsCard
               products={product}
               key={product.id}

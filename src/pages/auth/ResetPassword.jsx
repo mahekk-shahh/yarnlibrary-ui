@@ -1,7 +1,6 @@
-import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import {
   Form,
@@ -13,23 +12,19 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import toast from "react-hot-toast";
 import url from "@/components/url";
+import { toast } from "@/components/ui/sonner";
 
 const BASE_URL = url;
 
 const ResetPassword = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const email = location.state?.email || "";
-  const resetToken = location.state?.token || ""; // optional if your backend uses token
-  console.log(email, resetToken);
-  const [loading, setLoading] = useState(false);
+  const {token} = useParams()
 
   const form = useForm({
     defaultValues: {
-      newPassword: "",
-      confirmPassword: "",
+      password: "",
+      confirm_password: "",
     },
   });
 
@@ -37,46 +32,36 @@ const ResetPassword = () => {
     handleSubmit,
     watch,
     setError,
-    formState: { errors },
+    formState: { isSubmitting }
   } = form;
 
-  const newPassword = watch("newPassword");
+  const password = watch("password");
 
   const onSubmit = async (values) => {
-    if (values.newPassword !== values.confirmPassword) {
-      setError("confirmPassword", {
+    if (values.password !== values.confirm_password) {
+      setError("confirm_password", {
         type: "validate",
         message: "Passwords do not match.",
       });
       return;
     }
 
-    if (!email) {
-      toast.error("Email is missing. Please restart the reset process.");
-      navigate("/forgot-password");
-      return;
-    }
-
-    setLoading(true);
     try {
-      const { data, status } = await axios.post(`${BASE_URL}/reset-password`, {
-        token: resetToken,
-        newPassword: values.newPassword,
+      const { data, status } = await axios.post(`${BASE_URL}/auth/reset-password/`, {
+        token,
+        ...values
       });
 
       if (status === 200) {
-        toast.success(
-          data.message || "Password reset successful. Please log in."
-        );
+        toast.success(data.message, {position: "top-right"});
         navigate("/login", { replace: true });
       }
     } catch (error) {
+      console.log(error)
       const msg =
         error?.response?.data?.message ||
         "Failed to reset password. Try again.";
       toast.error(msg);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -94,7 +79,7 @@ const ResetPassword = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="*:my-2.5">
             <FormField
               control={form.control}
-              name="newPassword"
+              name="password"
               rules={{
                 required: "New password is required.",
                 minLength: {
@@ -119,11 +104,11 @@ const ResetPassword = () => {
 
             <FormField
               control={form.control}
-              name="confirmPassword"
+              name="confirm_password"
               rules={{
                 required: "Confirm password is required.",
                 validate: (value) =>
-                  value === newPassword || "Passwords do not match.",
+                  value === password || "Passwords do not match.",
               }}
               render={({ field }) => (
                 <FormItem>
@@ -141,8 +126,8 @@ const ResetPassword = () => {
             />
 
             <div className="flex justify-end mt-4">
-              <Button type="submit" disabled={loading}>
-                {loading ? "Resetting..." : "Reset Password"}
+              <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Resetting..." : "Reset Password"}
               </Button>
             </div>
           </form>

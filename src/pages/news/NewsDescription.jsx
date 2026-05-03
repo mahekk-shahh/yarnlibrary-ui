@@ -1,6 +1,5 @@
 import { Skeleton } from "@/components/Skeleton";
 import { Badge } from "@/components/ui/badge";
-import url from "@/components/url";
 import { useNewsById } from "@/hooks/useNews";
 import { useParams } from "react-router-dom";
 
@@ -62,7 +61,7 @@ export default function NewsDescription() {
         </div>
         <div>
           <img
-            src={news.imageUrl || "/placeholder.png"}
+            src={news.image_url || "/placeholder.png"}
             alt={news.title}
             className="w-full rounded-lg"
           />

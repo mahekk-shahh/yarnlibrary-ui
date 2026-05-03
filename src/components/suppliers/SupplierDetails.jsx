@@ -21,6 +21,8 @@ const SupplierDetails = () => {
     isPending,
     error,
   } = useProductById(id);
+  
+  console.log(products)
 
   if(isDetailsPending || isPending) return (
     <div>
@@ -51,7 +53,7 @@ const SupplierDetails = () => {
           </div>
           <div className="flex gap-2 my-3 items-center">
             <User size={18} />
-            <p>{supplierDetail.name}</p>
+            <p>{supplierDetail.username}</p>
           </div>
           <div className="flex gap-2 my-3 items-center">
             <Mail size={18} />
@@ -63,7 +65,7 @@ const SupplierDetails = () => {
           </div>
         </div>
         <img
-          src={supplierDetail.logoUrl}
+          src={supplierDetail.logo_url}
           alt={supplierDetail.companyName}
           className="rounded aspect-video object-contain"
         />

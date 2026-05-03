@@ -40,7 +40,7 @@ const ProtectedRoute = () => {
       />
     );
   }
-  if (!data?.success)
+  if (!data?.is_authenticated)
     return (
       <Error
         type="warning"
@@ -69,7 +69,7 @@ const MainNavigator = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/otp-verify" element={<OTPVerification />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

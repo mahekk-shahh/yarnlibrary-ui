@@ -7,10 +7,7 @@ const NewsCard = ({ news }) => {
 
   return (
     <div key={news.id} className="flex gap-4">
-      <img
-        src={news.imageUrl}
-        className="rounded-xl mb-2 h-28 w-28 border"
-      />
+      <img src={news.image_url} className="rounded-xl mb-2 h-28 min-w-28 border" />
       <div className="flex justify-evenly items-start flex-col">
         <h3 className="font-medium text-sm line-clamp-2">{news.title}</h3>
         <Button

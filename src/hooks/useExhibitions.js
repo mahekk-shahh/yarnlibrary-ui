@@ -3,13 +3,13 @@ import { useQuery } from "@tanstack/react-query";
 import api from "@/helper/helper"
 
 const fetchExhibitions = async () => {
-  const response = await api.get(`${url}/exhibitions`);
-  return response.data.data;
+  const response = await api.get(`${url}/api/exhibitions`);
+  return response.data;
 };
 
 const fetchExhibitionsById = async (id) => {
-  const response = await api.get(`${url}/exhibitions/${id}`);
-  return response.data.data;
+  const response = await api.get(`${url}/api/exhibitions/${id}`);
+  return response.data;
 };
 
 export const useExhibitions = () => {

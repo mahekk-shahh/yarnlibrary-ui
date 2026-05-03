@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { replace, useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import {
   Form,
@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import url from "@/components/url";
+import toast from "react-hot-toast";
 
 const signupSchema = z.object({
   username: z.string().min(1, "Name is required"),
@@ -30,7 +31,7 @@ const Signup = () => {
     mode: "all",
     resolver: zodResolver(signupSchema),
     defaultValues: {
-      name: "",
+      username: "",
       email: "",
       company: "",
       phone_number: "",
@@ -42,18 +43,22 @@ const Signup = () => {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(`${url}/api/users/`, data);
-      if (response.status === 200) {
-        navigate("/login");
+      if (response.status === 201) {
+        navigate("/login", {replace: true});
         console.log(response.data);
       }
     } catch (error) {
       if(error.response.status === 400) {
-        const field = error.response.data.field;
-        form.setError(field, {
-          type: "validate",
-          message: error.response.data.message,
-        });
+        const errors = error.response.data;
+        Object.entries(errors).forEach(([key, value])=>{
+          form.setError(key, {
+            type: "validate",
+            message: value,
+          });
+        })
+        return
       }
+      toast.error("Something went wrong")
     }
   };
 

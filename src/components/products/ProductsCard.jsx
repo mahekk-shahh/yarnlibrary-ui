@@ -11,7 +11,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useState } from "react";
 
 export function ProductsCard({ products, className, hideLink = false }) {
-  if (!products || !products.imageUrl || products.imageUrl.length === 0)
+  if (!products || !products.image_urls || products.image_urls.length === 0)
     return null;
 
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ export function ProductsCard({ products, className, hideLink = false }) {
         <Dialog>
           <DialogTrigger asChild>
             <img
-              src={products.imageUrl[0]}
+              src={products.image_urls[0]}
               className="cursor-zoom-in w-full rounded"
               alt="product"
             />
@@ -57,7 +57,7 @@ export function ProductsCard({ products, className, hideLink = false }) {
             <div className="flex gap-4">
               {/* THUMBNAILS */}
               <div className="space-y-2 max-h-[50vh] overflow-y-auto">
-                {products.imageUrl.map((img, index) => (
+                {products.image_urls.map((img, index) => (
                   <img
                     key={index}
                     onClick={() => scrollTo(index)}
@@ -70,14 +70,14 @@ export function ProductsCard({ products, className, hideLink = false }) {
                   />
                 ))}
               </div>
-              
+
               {/* CAROUSEL */}
               <div className="overflow-hidden flex-1" ref={emblaRef}>
                 <div className="flex">
                   {/* {products.images.map((img, index) => ( */}
                   <div className=" flex justify-center">
                     <img
-                      src={products.imageUrl[selectedIndex]}
+                      src={products.image_urls[selectedIndex]}
                       className="max-h-[500px] object-contain rounded"
                       alt={products.name}
                     />
@@ -92,17 +92,19 @@ export function ProductsCard({ products, className, hideLink = false }) {
         <CardContent className="p-5">
           <div className="flex justify-between items-center">
             <h5 className="font-medium text-md">
-              Supplier: {products.supplier?.name}
+              Supplier: {products.supplier_name}
             </h5>
-            {!hideLink && <Button
-              size="xs"
-              variant="ghost"
-              onClick={() =>
-                navigate(`/listing/company/${products.supplier_id}`)
-              }
-            >
-              <ExternalLink />
-            </Button>}
+            {!hideLink && (
+              <Button
+                size="xs"
+                variant="ghost"
+                onClick={() =>
+                  navigate(`/listing/company/${products.supplier_id}`)
+                }
+              >
+                <ExternalLink />
+              </Button>
+            )}
           </div>
           <p className="text-sm">Product Type: {products.name}</p>
           <p className="text-sm">Quality: {products.quality}</p>

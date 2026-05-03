@@ -3,13 +3,13 @@ import api from "@/helper/helper";
 import { useQuery } from "@tanstack/react-query";
 
 const getNews = async () => {
-  const res = await api.get(`${url}/news`);
-  return res.data.data;
+  const res = await api.get(`${url}/api/news`);
+  return res.data;
 };
 
 const getNewsById = async (id) => {
-  const response = await api.get(`${url}/news/${id}`);
-  return response.data.data;
+  const response = await api.get(`${url}/api/news/${id}`);
+  return response.data;
 };
 
 export const useNews = () => {

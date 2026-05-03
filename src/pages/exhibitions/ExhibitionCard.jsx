@@ -12,7 +12,7 @@ const ExhibitionCard = ({ exhibition }) => {
     >
       <div className="text-center">
         <img
-          src={exhibition.imageUrl}
+          src={exhibition.image_url}
           alt="Exhibition"
           className="m-auto rounded aspect-video object-contain"
         />

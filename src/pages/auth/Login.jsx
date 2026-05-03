@@ -33,23 +33,26 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       const { data: response, status } = await axios.post(
-        `${url}/users/login`,
-        data
+        `${url}/auth/login/`,
+        data,
+        { withCredentials: true },
       );
       if (status === 200) {
-        localStorage.setItem("token", response.token);
+        localStorage.setItem("token", response.access);
         queryClient.invalidateQueries({ queryKey: ["auth"] });
-        navigate("/", { replace: true });
+        navigate("/", {replace: true});
       }
     } catch (error) {
-      if (error.response.status === 401) {
+      console.log(error)
+      if (error.status === 400) {
         setError("password", {
           type: "validate",
-          message: error.response.data.message,
+          message: error.response.data.non_field_errors,
         });
       }
     }
   };
+
   return (
     <>
       <div className="login-container h-screen flex items-center justify-center py-8">
