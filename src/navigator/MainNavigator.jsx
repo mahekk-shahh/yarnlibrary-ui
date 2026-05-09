@@ -48,7 +48,7 @@ const ProtectedRoute = () => {
         info="You must be logged in to access this page. Please login to continue and enjoy all features."
         button={
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button variant="outline" onClick={() => navigate("/login")}>
+            <Button variant="outline" onClick={() => navigate("/auth/login")}>
               <LogIn size={18} strokeWidth={2} /> Login
             </Button>
             <Button variant="outline" onClick={() => navigate("/")}>
@@ -65,11 +65,12 @@ const MainNavigator = () => {
   const navigate = useNavigate();
   return (
     <Routes>
-      <Route path="/account/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/otp-verify" element={<OTPVerification />} />
-      <Route path="/reset-password/:token" element={<ResetPassword />} />
+      <Route path="/auth">
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="forgot-password" element={<ForgotPassword />} />
+        <Route path="reset-password/:token" element={<ResetPassword />} />
+      </Route>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

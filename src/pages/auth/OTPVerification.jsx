@@ -65,7 +65,7 @@ const OTPVerification = () => {
           data.message || "OTP verified. Please set your new password."
         );
 
-        navigate("/reset-password", {
+        navigate("/auth/reset-password", {
           state: { email, token: data.token },
           replace: true,
         });
@@ -181,7 +181,7 @@ const OTPVerification = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/auth/login")}
             >
               Back to Login
             </Button>

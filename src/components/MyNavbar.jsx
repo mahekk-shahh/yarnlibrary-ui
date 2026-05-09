@@ -98,7 +98,7 @@ const MyNavbar = () => {
           {data?.is_authenticated ? (
             <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
           ) : (
-            <DropdownMenuItem onClick={() => navigate("/login")}>
+            <DropdownMenuItem onClick={() => navigate("/auth/login")}>
               Login
             </DropdownMenuItem>
           )}

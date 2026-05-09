@@ -44,7 +44,7 @@ const Signup = () => {
     try {
       const response = await axios.post(`${url}/api/users/`, data);
       if (response.status === 201) {
-        navigate("/login", {replace: true});
+        navigate("/auth/login", { replace: true });
         console.log(response.data);
       }
     } catch (error) {

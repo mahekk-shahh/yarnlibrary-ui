@@ -54,7 +54,7 @@ const ResetPassword = () => {
 
       if (status === 200) {
         toast.success(data.message, {position: "top-right"});
-        navigate("/login", { replace: true });
+        navigate("/auth/login", { replace: true });
       }
     } catch (error) {
       console.log(error)

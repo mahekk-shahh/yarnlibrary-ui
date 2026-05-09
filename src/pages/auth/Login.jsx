@@ -87,7 +87,7 @@ const Login = () => {
                         <p>Password</p>
                         <p
                           className="font-normal text-xs"
-                          onClick={() => navigate("/forgot-password")}
+                          onClick={() => navigate("/auth/forgot-password")}
                         >
                           Forgot Password?
                         </p>
@@ -105,9 +105,15 @@ const Login = () => {
                 )}
               />
               <div className="flex justify-end">
-                <Button disabled={isSubmitting}>{isSubmitting ? <>
-                  Please wait... <Loader2 className="animate-spin" />
-                </> : "Login"}</Button>
+                <Button disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      Please wait... <Loader2 className="animate-spin" />
+                    </>
+                  ) : (
+                    "Login"
+                  )}
+                </Button>
               </div>
             </form>
           </Form>
@@ -116,7 +122,7 @@ const Login = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => navigate("/signup")}
+              onClick={() => navigate("/auth/signup")}
             >
               Signup
             </Button>

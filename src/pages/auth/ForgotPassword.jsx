@@ -34,7 +34,7 @@ const ForgotPassword = () => {
         position: "top-right",
         description: response.data.message || "OTP sent to your email",
       });
-      navigate("/login");
+      navigate("/auth/login");
     } catch (error) {
       toast.error("Something went wrong", { position: "top-right" });
     }
