@@ -65,7 +65,7 @@ const MainNavigator = () => {
   const navigate = useNavigate();
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/account/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/otp-verify" element={<OTPVerification />} />
